@@ -1,0 +1,94 @@
+@font-face {
+  font-family: font1;
+  src: url('./assets/fonts/Heavitas.ttf');
+}
+
+#app-container {
+  height: 100vh;
+  overflow: hidden;
+  user-select: none;
+
+  #slider {
+    display: flex;
+    white-space: nowrap;
+    transition: 1500ms;
+    filter: brightness(50%);
+  }
+
+  #true-container {
+    @keyframes show-delay {
+      from {
+        scale: 0.75;
+        filter: blur(50px);
+      }
+      to {
+        scale: 1;
+        filter: blur(0px);
+      }
+    }
+
+    @keyframes waving {
+      from {transform: translateY(10px);}
+      to {transform: translateY(-10px);}
+    }
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    z-index: 50;
+    display: flex;
+
+    #left-part {
+      position: relative;
+      width: 85%;
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+
+      #pic-btns {
+        position: absolute;
+        bottom: 15px;
+        right: 15px;
+        display: flex;
+        z-index: 100;
+
+        .pic-btn {
+          transition: all 1500ms;
+        }
+      }
+
+      #title {
+        font-family: font1;
+        font-size: 200px;
+        animation: ease-in-out waving infinite 2s, show-delay 2s;
+        animation-direction: alternate;
+      }
+
+      h1 {
+        animation: show-delay;
+        animation-duration: 3s;
+      }
+
+      #skills {
+        font-family: font1;
+        display: flex;
+        animation: show-delay;
+        animation-duration: 4s;
+      }
+    }
+
+    #right-part {
+      user-select: text;
+      width: 15%;
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-around;
+      font-size: 20px;
+    }
+  }
+}

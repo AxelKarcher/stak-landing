@@ -1,0 +1,17 @@
+.tableRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  &:hover {
+    background-color: rgb(189, 189, 189);
+    transform: scale(1.01);
+    cursor: pointer;
+  }
+
+  &:active {
+    background-color: rgb(173, 173, 173);
+  }
+
+  transition: transform 0.1s;
+}
