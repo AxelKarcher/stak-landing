@@ -15,7 +15,7 @@ const TextField = ({label, action, value, disabled, style,
         lines
         ?
         <textarea
-          rows={lines}
+          rows={10}
           onKeyDown={(e) => (onConfirm && e?.code === 'Enter') && onConfirm()}
           disabled={disabled}
           type={isPassword ? 'password' : ''}

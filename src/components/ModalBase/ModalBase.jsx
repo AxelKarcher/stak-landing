@@ -2,7 +2,7 @@ import './ModalBase.scss'
 import {secondary, light} from '../../config/colors'
 import {margin, padding, borderRadius} from '../../config/ui'
 
-const ModalBase = ({children, isOn, handleClose, title, style}) => {
+const ModalBase = ({isOn, isBlocked, handleClose, title, children, style}) => {
   return (
     <>
       {
@@ -10,7 +10,7 @@ const ModalBase = ({children, isOn, handleClose, title, style}) => {
         <div
           id='modalbase-container'
           style={{backgroundColor: 'rgba(100, 100, 100, 0.5)'}}
-          onClick={handleClose}
+          onClick={!isBlocked ? handleClose : null}
         >
           <div
             id='body'

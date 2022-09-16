@@ -1,10 +1,17 @@
 import {BrowserRouter, Routes, Route, Navigate} from 'react-router-dom'
 
-import {background} from '../config/colors'
+import {background, light} from '../config/colors'
+
+// const routes = [
+//   {path: '/', elem: '/home'},
+//   {path: '/home', elem: <HomePage />},
+//   {path: '/projects', elem: <ProjectsPage />},
+//   {path: '*', elem: '/home'}
+// ]
 
 const Router = ({routes}) => {
   return (
-    <div style={{height: '100vh', backgroundColor: background}}>
+    <div style={{color: light, backgroundColor: background}}>
       <BrowserRouter>
         <Routes>
           {routes.map(({path, elem}, i) => (

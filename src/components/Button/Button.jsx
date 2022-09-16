@@ -9,7 +9,7 @@ const Button = ({label, icon, action, disabled, style, fullWidth, className}) =>
       className={(disabled ? '' : 'anim') + ' ' + className}
       onClick={action}
       style={{color: disabled ? 'grey' : light, backgroundColor: disabled ? 'lightgrey' : primary,
-        cursor: disabled ? 'not-allowed' : 'pointer', width: fullWidth ? '100%' : 'auto', height: 40,
+        cursor: disabled ? 'not-allowed' : 'pointer', width: fullWidth && '100%',
         borderRadius: borderRadius, ...style
       }}
     >

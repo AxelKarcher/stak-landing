@@ -1,0 +1,91 @@
+@font-face {
+  font-family: font1;
+  src: url('../../assets/fonts/Heavitas.ttf');
+}
+
+@keyframes show-delay {
+  from {
+    scale: 0.75;
+    filter: blur(50px);
+  }
+  to {
+    scale: 1;
+    filter: blur(0px);
+  }
+}
+
+@keyframes waving {
+  from {transform: translateY(10px);}
+  to {transform: translateY(-10px);}
+}
+
+#home-page-container {
+  background-image: url('../../assets/images/bg1.jpg');
+  background-size: cover;
+  min-height: 100vh;
+  min-width: 100vw;
+  display: inline-grid;
+  justify-content: space-between;
+  user-select: none;
+  @media only screen and (max-width: 1000px) {
+    grid-template-areas:
+      'left-part'
+      'right-part'
+    ;
+  }
+  @media only screen and (min-width: 1001px) {
+    grid-template-areas:
+      'left-part right-part'
+    ;
+  }
+
+  #left-part {
+    grid-area: left-part;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    z-index: 10;
+
+    #title {
+      font-family: font1;
+      font-size: calc(110px + 5vw);
+      animation: ease-in-out waving infinite 2s, show-delay 1s;
+      animation-direction: alternate;
+    }
+
+    h1 {
+      font-size: calc(30px + 0.5vw);
+      animation: show-delay;
+      animation-duration: 2s;
+    }
+
+    #left-btns {
+      display: flex;
+      animation: show-delay;
+      animation-duration: 3s;
+      @media only screen and (max-width: 1000px) {
+        margin-bottom: 20px;
+      }
+    }
+
+    #skills {
+      font-family: font1;
+      display: flex;
+      animation: show-delay;
+      animation-duration: 4s;
+    }
+  }
+
+  #right-part {
+    grid-area: right-part;
+    user-select: text;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    z-index: 10;
+  }
+}
