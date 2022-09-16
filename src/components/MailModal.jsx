@@ -27,8 +27,8 @@ const MailModal = ({isOn, handleClose}) => {
       .finally(() => {
         setSenderMail('')
         setMessage('')
-        handleClose()
         setIsLoading(false)
+        handleClose()
       })
   }
 
@@ -37,13 +37,13 @@ const MailModal = ({isOn, handleClose}) => {
       isOn={isOn}
       handleClose={handleClose}
       isBlocked={isLoading}
-      title={'Envoyer un mail'}
+      title={'Contactez-moi'}
       style={{width: '90%'}}
     >
       <TextField
         fullWidth
         style={{marginBottom: margin}}
-        label='Votre email'
+        label='Votre adresse mail'
         value={senderMail}
         action={(e) => setSenderMail(e)}
       />

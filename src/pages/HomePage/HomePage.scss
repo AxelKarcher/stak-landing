@@ -1,3 +1,5 @@
+@use '../../config/export.scss' as export;
+
 @font-face {
   font-family: font1;
   src: url('../../assets/fonts/Heavitas.ttf');
@@ -65,7 +67,7 @@
       animation: show-delay;
       animation-duration: 3s;
       @media only screen and (max-width: 1000px) {
-        margin-bottom: 20px;
+        margin-bottom: export.$margin;
       }
     }
 
