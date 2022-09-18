@@ -22,7 +22,6 @@ const MailModal = ({isOn, handleClose}) => {
       user_id: '1h-oZxKbv5CUYun6y',
       template_params: {sender: senderMail, message: message}
     })
-      .then((res) => console.log('res:', res))
       .catch((err) => console.error('err:', err))
       .finally(() => {
         setSenderMail('')

@@ -1,0 +1,67 @@
+@use '../../config/export.scss' as export;
+
+#project-container {
+  user-select: text;
+  display: flex;
+  min-width: 400px;
+  @media only screen and (max-width: 1100px) {
+    flex-direction: column;
+    align-items: center;
+  }
+  justify-content: space-between;
+
+  #texts {
+    @media only screen and (max-width: 1100px) {
+      margin-bottom: export.$margin;
+    }
+
+    #title {
+      display: flex;
+      align-items: center;
+      width: 100%;
+      @media only screen and (max-width: 1100px) {
+        margin-bottom: export.$margin;
+      }
+
+      #first {
+        font-size: calc(30px + 2vw);
+        font-weight: bold;
+      }
+
+      #second {
+        font-style: oblique;
+      }
+    }
+
+    #description {
+      display: flex;
+      align-items: center;
+      font-size: calc(15px + 0.4vw);
+      margin-right: export.$margin;
+      height: 100%;
+    }
+  }
+
+  #slider-frame {
+    overflow: hidden;
+    min-width: 350px;
+    max-width: 350px;
+    background-color: export.$cloudy;
+    border: 2px solid export.$light;
+    border-radius: export.$borderRadius;
+    cursor: help;
+
+    &:hover {
+      transform: scale(1.05);
+    }
+
+    &:active {
+      transform: scale(0.95);
+    }
+
+    #slider {
+      display: flex;
+      transition: 750ms;
+    }
+  }
+}

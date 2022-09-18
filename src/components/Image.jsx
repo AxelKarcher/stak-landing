@@ -1,46 +1,36 @@
 import {ImDownload3} from 'react-icons/im'
-import {GoScreenFull} from 'react-icons/go'
 
 import {borderRadius} from '../config/ui'
 import {light} from '../config/colors'
 import {margin} from '../config/ui'
 
 const Image = ({
-  src, size, style, noDownload, downloadName, iconsSize,
-  noFull, noBtns, isBasic, id
+  src, width, height, size, style, canDownload, downloadName,
+  iconsSize, canFull, id
 }) => {
   return (
     <div
       id={id}
       style={{display: 'flex', flexDirection: 'column', alignItems: 'flex-start',
-        fontSize: iconsSize || 25, ...style
+        fontSize: iconsSize || 25, boxSizing: 'border-box',
+        maxWidth: width, maxHeight: height, minWidth: width, minHeight: height,
+        ...style
       }}
     >
-      <img
-        style={{borderRadius: !isBasic && borderRadius, border: !isBasic && '2px solid white',
-          marginBottom: !noBtns && (!noDownload || !noFull) ? margin / 2 : 0,
-          objectFit: 'cover'
-        }}
-        src={src}
-        width={size}
-        alt=''
-      />
+      <a href={canFull && src} target='_blank'>
+        <img
+          style={{borderRadius: borderRadius, objectFit: 'scale-down'}}
+          src={src}
+          width={size || width}
+          height={size || height}
+          alt=''
+        />
+      </a>
       {
-        !isBasic && !noBtns &&
-        <div style={{display: 'flex'}}>
-          {
-            !noFull &&
-            <a href={src} target='_blank' style={{marginRight: margin}}>
-              <GoScreenFull style={{color: light}} />
-            </a>
-          }
-          {
-            !noDownload &&
-            <a download={(downloadName || 'image') + '.jpg'} href={src}>
-              <ImDownload3 style={{color: light}} />
-            </a>
-          }
-        </div>
+        canDownload &&
+        <a style={{marginTop: margin / 3}} download={downloadName || 'image'} href={src}>
+          <ImDownload3 style={{color: light}} />
+        </a>
       }
     </div>
   )
