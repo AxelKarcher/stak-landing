@@ -21,13 +21,13 @@
 
   #header {
     width: 100%;
-    min-width: 450px;
     position: sticky;
     top: 0;
     display: flex;
     @media only screen and (max-width: 1100px) {
       flex-direction: column;
       align-items: center;
+      text-align: center;
     }
     align-items: center;
     justify-content: space-evenly;
@@ -36,7 +36,6 @@
     background-color: export.$secondary;
     border-bottom: 4px solid export.$primary;
     border-radius: 0 0 export.$borderRadius export.$borderRadius;
-    margin-bottom: export.$margin;
     z-index: 10;
   }
 }

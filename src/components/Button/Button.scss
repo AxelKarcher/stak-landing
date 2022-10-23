@@ -1,3 +1,5 @@
+@use '../../config/export.scss' as export;
+
 #button-container {
   user-select: none;
   display: flex;
@@ -9,6 +11,7 @@
   transition: transform 0.1s;
   font-weight: bold;
   font-size: 25px;
+  border-radius: export.$borderRadius;
 
   #icon {
     display: flex;

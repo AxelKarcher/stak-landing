@@ -3,11 +3,12 @@ import {useNavigate} from 'react-router-dom'
 import {HiOutlineArrowSmLeft} from 'react-icons/hi'
 
 import Button from '../../components/Button/Button'
-import {margin} from '../../config/ui'
 import Project from '../../components/Project/Project'
 import './ProjectsPage.scss'
-import Switch from '../../components/Switch'
+import Switch from '../../components/Switch/Switch'
 import ScreenSizeModal from '../../components/ScreenSizeModal'
+import {margin} from '../../config/ui'
+import VisualizerModal from '../../components/VisualizerModal/VisualizerModal'
 
 // omnegy
 import omnegyLogo from '../../assets/images/omnegy/logo.png'
@@ -41,6 +42,9 @@ import emg1 from '../../assets/images/emg/1.jpg'
 import emg2 from '../../assets/images/emg/2.jpg'
 import emg3 from '../../assets/images/emg/3.jpg'
 import emg4 from '../../assets/images/emg/4.jpg'
+
+// TODO
+// meilleure façon de get images d'assets
 
 const projects = [
   {
@@ -96,7 +100,7 @@ const projects = [
     isPro: true,
     description: 'Premier contact avec React & React Native. Project de fin d\'année ' +
       'en équipe. Gestion de widgets et d\'alertes depuis le site web ou ' +
-      'l\'application Android. Je m\'étais occupé de faire les Fronts.'
+      'l\'application Android. Je m\'étais occupé de faire les Fronts et les liens avec le Back.'
   },
   {
     company: 'EMG',
@@ -120,6 +124,7 @@ const ProjectsPage = () => {
   const [isProOnly, setIsProOnly] = useState(false)
   const [isDefaultOrder, setIsDefaultOrder] = useState(true)
   const [isScreenModalOn, setIsScreenModalOn] = useState(false)
+  const [visualizerData, setVisualizerData] = useState()
 
   useEffect(() => {
     let newUsedData
@@ -135,6 +140,11 @@ const ProjectsPage = () => {
   return (
     <div id='projects-page-container'>
       <ScreenSizeModal isOn={isScreenModalOn} handleClose={() => setIsScreenModalOn(false)} />
+      <VisualizerModal
+        isOn={visualizerData !== undefined}
+        handleClose={() => setVisualizerData(undefined)}
+        data={visualizerData}
+      />
       <div id='header'>
         <Button
           icon={<HiOutlineArrowSmLeft size={30} />}
@@ -152,13 +162,14 @@ const ProjectsPage = () => {
           setter={setIsDefaultOrder}
         />
       </div>
-      <div style={{display: 'flex', flexDirection: 'column', width: '75%'}}>
+      <div style={{display: 'flex', flexDirection: 'column'}}>
         {usedData?.map((elem, i) => (
           <Project
             key={i}
+            style={{marginBottom: i === usedData?.length - 1 ? margin : 0}}
             data={elem}
-            style={{marginBottom: margin}}
             tooSmallAction={() => setIsScreenModalOn(true)}
+            handleVisualizer={() => setVisualizerData(usedData[i])}
           />
         ))}
       </div>

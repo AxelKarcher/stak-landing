@@ -76,6 +76,7 @@
       display: flex;
       animation: show-delay;
       animation-duration: 4s;
+      margin-bottom: export.$margin;
     }
   }
 
@@ -88,6 +89,8 @@
     align-items: center;
     justify-content: center;
     font-size: 20px;
+    padding: export.$padding;
+    background-color: export.$cloudy;
     z-index: 10;
   }
 }

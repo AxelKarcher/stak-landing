@@ -1,3 +1,5 @@
+@use '../../config/export.scss' as export;
+
 #modalbase-container {
   position: fixed;
   top: 0;
@@ -17,11 +19,16 @@
     align-items: center;
     justify-content: center;
     box-sizing: border-box;
+    margin: export.$margin;
+    background-color: export.$secondary;
+    padding: export.$padding;
+    border-radius: export.$borderRadius;
 
     #title {
       font-weight: bold;
       font-size: 50px;
       text-align: center;
+      color: export.$light;
     }
   }
 }

@@ -1,8 +1,12 @@
+@use '../../config/export.scss' as export;
+
 #spinner-container {
   border-style: solid;
   border-color: transparent;
   border-radius: 50%;
   animation: loading 1s ease infinite;
+  border-top-color: export.$primary;
+  border-bottom-color: export.$primary;
 
   @keyframes loading {
     to {

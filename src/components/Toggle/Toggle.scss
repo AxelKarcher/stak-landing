@@ -1,9 +1,15 @@
+@use '../../config/export.scss' as export;
+
 #toggleContainer {
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   box-sizing: border-box;
+  padding: padding;
+  border-radius: export.$border-radius;
+  background-color: export.$primary;
+  color: export.$light;
 
   #choices {
     display: grid;

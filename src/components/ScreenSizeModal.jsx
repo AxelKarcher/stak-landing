@@ -7,7 +7,7 @@ const ScreenSizeModal = ({isOn, handleClose}) => {
       handleClose={handleClose}
       style={{fontSize: 30, textAlign: 'center'}}
     >
-      Indisponible sur téléphone
+      Visionneuse disponible sur un écran plus grand
     </ModalBase>
   )
 }

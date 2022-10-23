@@ -3,12 +3,12 @@
 #project-container {
   user-select: text;
   display: flex;
-  min-width: 400px;
   @media only screen and (max-width: 1100px) {
     flex-direction: column;
     align-items: center;
   }
   justify-content: space-between;
+  margin: export.$margin;
 
   #texts {
     @media only screen and (max-width: 1100px) {
@@ -38,6 +38,9 @@
       align-items: center;
       font-size: calc(15px + 0.4vw);
       margin-right: export.$margin;
+      @media only screen and (max-width: 1100px) {
+        margin-right: 0;
+      }
       height: 100%;
     }
   }
@@ -46,10 +49,15 @@
     overflow: hidden;
     min-width: 350px;
     max-width: 350px;
+    @media only screen and (max-width: 500px) {
+      min-width: 300px;
+      max-width: 300px;
+    }
     background-color: export.$cloudy;
     border: 2px solid export.$light;
     border-radius: export.$borderRadius;
     cursor: help;
+    transition: all 0.3s;
 
     &:hover {
       transform: scale(1.05);

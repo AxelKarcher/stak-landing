@@ -1,0 +1,16 @@
+#switch-container {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  font-size: 25px;
+  @media only screen and (max-width: 450px) {
+    font-size: 5vw;
+  }
+  transition: all 0.1s;
+
+  #switch {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}

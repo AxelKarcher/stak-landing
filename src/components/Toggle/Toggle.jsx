@@ -1,17 +1,11 @@
 import './Toggle.scss'
-import {padding, borderRadius} from '../../config/ui'
-import {primary, secondary, light} from '../../config/colors'
+import {secondary} from '../../config/colors'
 
 // choices EXAMPLE: [{label: 'ON', value: true}, {label: 'OFF', value: false}]
 
 const Toggle = ({title, choices, value, setter, style}) => {
   return (
-    <div
-      id='toggleContainer'
-      style={{padding: padding, borderRadius: borderRadius,
-        backgroundColor: primary, color: light, ...style
-      }}
-    >
+    <div id='toggleContainer' style={{...style}}>
       {title && <div style={{marginBottom: 10, fontWeight: 'bold'}}>{title}</div>}
       <div id='choices' style={{gridTemplateColumns: 'repeat(2, 1fr)'}}>
         {

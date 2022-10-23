@@ -1,22 +1,22 @@
 import OldSwitch from 'react-ios-switch'
 
-import {primary, secondary, light} from '../config/colors'
-import {margin} from '../config/ui'
+import {primary, secondary, light} from '../../config/colors'
+import {margin} from '../../config/ui'
+import './Switch.scss'
 
+// TODO
 // cursor en grab sur le bordel principal
 
 const Switch = ({value, disabled, label, setter, style, textStyle}) => {
   return (
-    <div style={{display: 'flex', alignItems: 'center', ...style}}>
+    <div id='switch-container' style={{...style}}>
       {
         label &&
-        <span style={{color: light, fontWeight: 'bold', fontSize: 25,
-          marginRight: margin, ...textStyle
-        }}>
+        <span style={{color: light, fontWeight: 'bold', marginRight: margin, ...textStyle}}>
           {label}
         </span>
       }
-      <div style={{display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
+      <div id='switch'>
         <OldSwitch
           checked={value}
           disabled={disabled}

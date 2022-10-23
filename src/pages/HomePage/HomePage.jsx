@@ -1,8 +1,7 @@
-import {useState, useEffect} from 'react'
+import {useState} from 'react'
 import {useNavigate} from 'react-router-dom'
 
 import './HomePage.scss'
-import {cloudy} from '../../config/colors'
 import {margin, padding} from '../../config/ui'
 import Button from '../../components/Button/Button'
 import Skill from '../../components/Skill/Skill'
@@ -70,7 +69,7 @@ const HomePage = () => {
             <Button label='CV' icon={<IoMdDownload />} />
           </a>
         </div>
-        <div id='skills' style={{marginBottom: margin}}>
+        <div id='skills'>
           {skills?.map((elem, i) => (
             <Skill
               key={i}
@@ -80,7 +79,7 @@ const HomePage = () => {
           ))}
         </div>
       </div>
-      <div id='right-part' style={{padding: padding, backgroundColor: cloudy}}>
+      <div id='right-part'>
         {contacts?.map((elem, i) => (
           <Contact
             key={i}

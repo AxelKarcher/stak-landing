@@ -7,7 +7,7 @@ import Button from '../Button/Button'
 import Image from '../Image'
 import {margin} from '../../config/ui'
 
-const VisualizerModal = ({images, title, isOn, handleClose}) => {
+const VisualizerModal = ({data, isOn, handleClose}) => {
 
   const [index, setIndex] = useState(0)
 
@@ -15,11 +15,11 @@ const VisualizerModal = ({images, title, isOn, handleClose}) => {
     <ModalBase
       isOn={isOn}
       handleClose={handleClose}
-      title={title}
+      title={data?.company}
       style={{display: 'flex', alignItems: 'center'}}
     >
       {
-        images?.length > 1 &&
+        data?.images?.length > 1 &&
         <Button
           icon={<HiOutlineArrowSmLeft />}
           action={() => setIndex(index - 1)}
@@ -27,19 +27,14 @@ const VisualizerModal = ({images, title, isOn, handleClose}) => {
           style={{marginRight: margin}}
         />
       }
-      <Image
-        canFull
-        canDownload
-        src={images[index]}
-        iconsSize={40}
-      />
+      <Image canFull canDownload src={data?.images[index]} iconsSize={40} />
       {
-        images?.length > 1 &&
+        data?.images?.length > 1 &&
         <Button
           style={{marginLeft: margin}}
           icon={<HiOutlineArrowSmRight />}
           action={() => setIndex(index + 1)}
-          disabled={index === images?.length - 1}
+          disabled={index === data?.images?.length - 1}
         />
       }
     </ModalBase>
