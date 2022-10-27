@@ -15,7 +15,7 @@ const VisualizerModal = ({data, isOn, handleClose}) => {
     <ModalBase
       isOn={isOn}
       handleClose={handleClose}
-      title={data?.company}
+      title={(data?.company ? data?.company + ' - ' : '') + data?.product}
       style={{display: 'flex', alignItems: 'center'}}
     >
       {

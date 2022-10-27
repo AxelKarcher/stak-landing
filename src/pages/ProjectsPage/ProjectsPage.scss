@@ -38,4 +38,14 @@
     border-radius: 0 0 export.$borderRadius export.$borderRadius;
     z-index: 10;
   }
+
+  #grid {
+    display: grid;
+    padding: export.$padding;
+    grid-template-columns: repeat(2, 1fr);
+    @media only screen and (max-width: 1350px) {
+      grid-template-columns: repeat(1, 1fr);
+    }
+    grid-gap: export.$margin;
+  }
 }

@@ -3,73 +3,80 @@
 #project-container {
   user-select: text;
   display: flex;
-  @media only screen and (max-width: 1100px) {
+  align-items: flex-start;
+  @media only screen and (max-width: 800px) {
     flex-direction: column;
     align-items: center;
   }
   justify-content: space-between;
-  margin: export.$margin;
 
-  #texts {
-    @media only screen and (max-width: 1100px) {
+  #left-part {
+    margin-right: export.$margin;
+    @media only screen and (max-width: 800px) {
+      margin-right: 0px;
       margin-bottom: export.$margin;
     }
+    display: flex;
+    flex-direction: column;
+  }
 
+  #texts {
     #title {
       display: flex;
       align-items: center;
       width: 100%;
-      @media only screen and (max-width: 1100px) {
-        margin-bottom: export.$margin;
-      }
+      margin-bottom: export.$margin;
 
       #first {
-        font-size: calc(30px + 2vw);
+        font-size: 25px;
         font-weight: bold;
       }
 
       #second {
         font-style: oblique;
+        font-size: 20px;
       }
     }
 
     #description {
       display: flex;
       align-items: center;
-      font-size: calc(15px + 0.4vw);
-      margin-right: export.$margin;
-      @media only screen and (max-width: 1100px) {
-        margin-right: 0;
-      }
+      font-size: 20px;
       height: 100%;
     }
   }
 
-  #slider-frame {
-    overflow: hidden;
-    min-width: 350px;
-    max-width: 350px;
-    @media only screen and (max-width: 500px) {
-      min-width: 300px;
-      max-width: 300px;
-    }
-    background-color: export.$cloudy;
-    border: 2px solid export.$light;
-    border-radius: export.$borderRadius;
-    cursor: help;
-    transition: all 0.3s;
+  #right-part {
+    display: flex;
+    align-items: center;
+    height: 100%;
 
-    &:hover {
-      transform: scale(1.05);
-    }
+    #slider-frame {
+      overflow: hidden;
+      min-width: 350px;
+      max-width: 350px;
+      @media only screen and (max-width: 500px) {
+        min-width: 300px;
+        max-width: 300px;
+      }
+      background-color: export.$cloudy;
+      border: 2px solid export.$light;
+      border-radius: export.$borderRadius;
+      cursor: help;
+      transition: all 0.3s;
 
-    &:active {
-      transform: scale(0.95);
-    }
+      &:hover {
+        transform: scale(1.05);
+      }
 
-    #slider {
-      display: flex;
-      transition: 750ms;
+      &:active {
+        transform: scale(0.95);
+      }
+
+      #slider {
+        display: flex;
+        transition: 750ms;
+      }
     }
   }
 }

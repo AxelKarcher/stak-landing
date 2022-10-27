@@ -6,16 +6,14 @@ import {margin, padding} from '../../config/ui'
 import Button from '../../components/Button/Button'
 import Skill from '../../components/Skill/Skill'
 import {GrMysql} from 'react-icons/gr'
-import {SiExpress} from 'react-icons/si'
-import {SiReact} from 'react-icons/si'
 import {FiMail} from 'react-icons/fi'
-import {BsFillPhoneFill} from 'react-icons/bs'
-import {SiDiscord} from 'react-icons/si'
-import {SiLinkedin} from 'react-icons/si'
+import {SiDiscord, SiLinkedin, SiExpress, SiReact} from 'react-icons/si'
 import Contact from '../../components/Contact'
-import {FaArrowRight} from 'react-icons/fa'
+import {FaArrowRight, FaHandshake} from 'react-icons/fa'
 import MailModal from '../../components/MailModal'
 import {IoMdDownload} from 'react-icons/io'
+import {BsPhoneFill} from 'react-icons/bs'
+import {BiShowAlt} from 'react-icons/bi'
 
 const skills = [
   {icon: SiReact, label: 'React & React Native', hoverColor: '#00D8FF'},
@@ -33,11 +31,16 @@ const HomePage = () => {
     },
     {
       icon: SiLinkedin,
-      label: 'Axel KARCHER',
+      label: 'Profil LinkedIn',
       link: 'https://www.linkedin.com/in/axel-karcher-6348411a5/'
     },
-    {icon: BsFillPhoneFill, label: '06 45 43 98 54'},
-    {icon: SiDiscord, label: 'Rinkusu#7629'}
+    {
+      icon: FaHandshake,
+      label: 'Profil Malt',
+      link: 'https://www.malt.fr/profile/axelkarcher',
+      isImg: true
+    },
+    {icon: BsPhoneFill, label: '06 45 43 98 54'}
   ]
 
   const navigate = useNavigate()
@@ -60,9 +63,9 @@ const HomePage = () => {
         </div>
         <div id='left-btns'>
           <Button
-            label='Projets'
+            label='Portfolio'
             style={{marginRight: margin}}
-            icon={<FaArrowRight />}
+            icon={<BiShowAlt />}
             action={() => navigate('/projects')}
           />
           <a download='Axel_Karcher_CV_2022.pdf' href='cv.pdf' style={{textDecoration: 'none'}}>

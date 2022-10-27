@@ -43,10 +43,24 @@ import emg2 from '../../assets/images/emg/2.jpg'
 import emg3 from '../../assets/images/emg/3.jpg'
 import emg4 from '../../assets/images/emg/4.jpg'
 
+// dos
+import dos1 from '../../assets/images/dos/1.png'
+import dos2 from '../../assets/images/dos/2.png'
+
 // TODO
 // meilleure façon de get images d'assets
 
 const projects = [
+  {
+    product: 'Dos',
+    images: [dos1, dos2],
+    length: '3 jours',
+    year: '2022',
+    isPro: false,
+    description: 'Réplique du jeu de cartes "Uno" refait avec React, et socket.io pour ' +
+      'la gestion des web sockets. Back en Express JS. Interface à la base pensée pour jouer ' +
+      'sur mobile, donc compatible avec les petits écrans.'
+  },
   {
     company: 'Omnegy',
     product: 'Dashboard',
@@ -87,7 +101,7 @@ const projects = [
     length: '1-2 jours',
     year: '2022',
     isPro: false,
-    description: 'Réplique du jeu télévisé  "Motus". Back en "Express JS" pour ' +
+    description: 'Réplique du jeu télévisé "Motus". Back en Express JS pour ' +
       'récupérer un mot aléatoirement dans une liste.'
   },
   {
@@ -152,6 +166,7 @@ const ProjectsPage = () => {
           action={() => navigate('/')}
         />
         <Switch
+          id='middle-switch'
           value={isProOnly}
           label='Projets pro uniquement'
           setter={setIsProOnly}
@@ -162,11 +177,10 @@ const ProjectsPage = () => {
           setter={setIsDefaultOrder}
         />
       </div>
-      <div style={{display: 'flex', flexDirection: 'column'}}>
+      <div id='grid'>
         {usedData?.map((elem, i) => (
           <Project
             key={i}
-            style={{marginBottom: i === usedData?.length - 1 ? margin : 0}}
             data={elem}
             tooSmallAction={() => setIsScreenModalOn(true)}
             handleVisualizer={() => setVisualizerData(usedData[i])}

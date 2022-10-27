@@ -4,6 +4,7 @@ import ProjectsPage from './pages/ProjectsPage/ProjectsPage'
 
 // TODO
 // textarea de TextField va pas à la ligne auto
+// filtrer projets avec tags pour language
 
 const routes = [
   {path: '/', elem: '/home'},

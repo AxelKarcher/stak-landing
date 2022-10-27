@@ -6,7 +6,7 @@ import {margin} from '../config/ui'
 
 const Image = ({
   src, width, height, size, style, canDownload, downloadName,
-  iconsSize, canFull, id
+  iconsSize, canFull, id, notDraggable
 }) => {
   return (
     <div
@@ -19,6 +19,7 @@ const Image = ({
     >
       <a href={canFull && src} target='_blank'>
         <img
+          draggable={notDraggable ? false : true}
           style={{borderRadius: borderRadius, objectFit: 'scale-down'}}
           src={src}
           width={size || width}
